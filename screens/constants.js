@@ -1,3 +1,4 @@
 export default {
-  mainScreen: "main"
+  index: "index",
+  home: "home"
 };

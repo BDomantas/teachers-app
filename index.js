@@ -1,20 +1,24 @@
-/**
- * @format
- */
+import React from "react";
 import { Navigation } from "react-native-navigation";
 
 import initScreens from "./screens/initScreens";
 
 import screenConstants from "./screens/constants";
-const { mainScreen } = screenConstants;
+const { index } = screenConstants;
 
 initScreens();
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
-      component: {
-        name: mainScreen
+      stack: {
+        children: [
+          {
+            component: {
+              name: index
+            }
+          }
+        ]
       }
     }
   });
