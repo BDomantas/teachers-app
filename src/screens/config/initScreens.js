@@ -2,8 +2,8 @@ import React from "react";
 import { Navigation } from "react-native-navigation";
 import screenConstants from "./constants";
 
-import App from "../App";
-import HomeScreen from "../containers/Homescreen";
+import App from "../../../App";
+import HomeScreen from "../Homescreen";
 
 const { index, home } = screenConstants;
 

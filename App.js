@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,9 +11,9 @@ import {
 
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
-import { UserContext } from "./context/index";
+import { UserContext } from "./src/context/index";
 import { Navigation } from "react-native-navigation";
-import screenConstants from "./screens/constants";
+import screenConstants from "./src/screens/config/constants";
 
 const { home } = screenConstants;
 

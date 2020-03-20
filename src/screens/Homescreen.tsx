@@ -7,9 +7,9 @@ import {
   Text,
   StatusBar
 } from "react-native";
-import Header from "../components/Header";
+import Header from "@Components/Header";
 
-const HomeScreen = () => {
+const HomeScreen: React.FC<{}>= () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
