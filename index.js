@@ -14,7 +14,14 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: index
+              name: index,
+              options: {
+                topBar: {
+                  title: {
+                    text: "Index screen",
+                  },
+                },
+              },
             }
           }
         ]
