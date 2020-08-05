@@ -5,17 +5,18 @@ import {
   ScrollView,
   View,
   StatusBar,
-  Button,
   TextInput,
   Text,
 } from "react-native";
 import { t } from "react-native-tailwindcss";
+import { NavigationBar, Heading } from '@shoutem/ui'
 
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 import { UserContext } from "./src/context/index";
 import { Navigation } from "react-native-navigation";
 import screenConstants from "./src/screens/config/constants";
+import Button from './src/components/Button';
 
 const { home } = screenConstants;
 
@@ -31,6 +32,13 @@ const App = () => {
               {
                 component: {
                   name: home,
+                  options: {
+                    topBar: {
+                      title: {
+                        text: "Home Screen",
+                      },
+                    },
+                  },
                 },
               },
             ],
@@ -44,29 +52,19 @@ const App = () => {
 
   return (
     <UserContext.Provider>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
-        >
-          <View>
-            <Text style={[t.textRed900, t.textLg]}>
-              Text styled with tailwindcss
-            </Text>
-            <TextInput
-              style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-              onChangeText={(text) => setEmail(text)}
-              value={email}
-            />
-            <TextInput
-              style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
-              onChangeText={(text) => setPassword(text)}
-              value={password}
-            />
-            <Button title="Press me" onPress={() => {}} />
-          </View>
-        </ScrollView>
+      <SafeAreaView style={styles.container}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.heading}>Sveiki!</Text>
+        <Text style={styles.subtitle}>vieta kur išmokstama</Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button style={styles.button} title="Pradėti" onPress={() => {}} />
+        <Button style={styles.button} secondary title="Prisijungti" onPress={() => {}} />
+        <View style={styles.signUpTextContainer}>
+          <Text>Naujokas ? </Text>
+          <Text style={styles.signUpText}>Registruotis!</Text>
+        </View>
+      </View>
       </SafeAreaView>
     </UserContext.Provider>
   );
@@ -74,41 +72,44 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    flex: 1
   },
-  engine: {
-    position: "absolute",
-    right: 0,
+  signUpText: {
+    color: '#7041EE'
   },
-  body: {
-    backgroundColor: Colors.white,
+  signUpTextContainer: {
+    flexDirection: 'row',
+    flex: 1,
+    alignSelf: 'center',
+    paddingTop: 30,
+    paddingBottom: 40,
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  titleContainer: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: Colors.black,
+  buttonContainer: {
+    flex: 1,
+    paddingHorizontal: 35,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: "400",
-    color: Colors.dark,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    marginTop: 10,
   },
-  highlight: {
-    fontWeight: "700",
+  heading: {
+    fontSize: 62,
+    color: '#7041EE'
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: "600",
-    padding: 4,
-    paddingRight: 12,
-    textAlign: "right",
+  subtitle: {
+    color: '#2C2929',
+    fontSize: 20,
+    paddingVertical: 8
   },
+  button: {
+    marginVertical: 8
+  }
 });
 
 export default App;
