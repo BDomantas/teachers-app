@@ -2,16 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
-  StatusBar,
-  TextInput,
   Text,
 } from "react-native";
-import { t } from "react-native-tailwindcss";
-import { NavigationBar, Heading } from '@shoutem/ui'
-
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 import { UserContext } from "./src/context/index";
 import { Navigation } from "react-native-navigation";
@@ -47,8 +40,6 @@ const App = () => {
       });
     }
   }, []);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <UserContext.Provider>
