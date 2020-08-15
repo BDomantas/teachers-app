@@ -10,7 +10,7 @@ interface CourseCardProps {
     index: number;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ title, courseCount, id, image, onPress, index }) => {
+const CourseCard: React.FC<CourseCardProps> = ({ title, courseCount, image, onPress }) => {
     return (
         <TouchableOpacity style={styles.container } onPress={onPress}>
             <ImageBackground
