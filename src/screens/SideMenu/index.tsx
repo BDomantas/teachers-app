@@ -11,8 +11,6 @@ interface ButtonConfigType {
 
 const ButtonConfig: Array<ButtonConfigType> = [
     { title: "HomeScreen", key: home},
-    { title: "HomeScreen", key: home},
-    { title: "HomeScreen", key: home},
 ]
 
 const SideScreen = () => {
@@ -44,7 +42,7 @@ const SideScreen = () => {
     }
     const renderNavigationButtons = () => {
         return ButtonConfig.map(({title, key}) => (
-            <TouchableOpacity onPress={() => navigate(key)} style={styles.button}>
+            <TouchableOpacity key={key} onPress={() => navigate(key)} style={styles.button}>
                 <Text style={styles.buttonText}>{title}</Text>
             </TouchableOpacity>
         ));

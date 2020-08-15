@@ -6,6 +6,8 @@ import {
   Text,
 } from "react-native";
 
+import CourseList from '@Components/CourseList';
+
 interface HomeScreenProps {
   userName: string;
 }
@@ -16,6 +18,9 @@ const HomeScreen: React.FC<HomeScreenProps>= ({ userName = 'Alex'}) => {
         <View style={styles.headingContainer}>
           <Text style={styles.headingText}>Labas {userName}, </Text>
           <Text style={styles.subtitleText}>Pasirink ką nori išmokti </Text>
+        </View>
+        <View style={{flex: 1}}>
+          <CourseList/>
         </View>
       </SafeAreaView>
   );
@@ -37,7 +42,8 @@ const styles = StyleSheet.create({
   headingContainer: {
     justifyContent: 'flex-start',
     paddingTop: 60,
-    flex: 1,
+    flexShrink: 1,
+    paddingBottom: 24,
   }
 });
 
