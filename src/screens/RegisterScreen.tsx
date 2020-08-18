@@ -8,9 +8,8 @@ import {
   StyleSheet,
 } from "react-native";
 import { Formik } from "formik";
-import SocialButton from "@Components/SocialButton";
 
-const LoginScreen: React.FC<{}> = () => {
+const RegisterScreen: React.FC<{}> = () => {
   return (
     <View style={styles.page}>
       <SafeAreaView style={styles.container}>
@@ -20,7 +19,7 @@ const LoginScreen: React.FC<{}> = () => {
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View style={styles.inputContainer}>
-              <Text style={styles.title}>Prisijungimas</Text>
+              <Text style={styles.title}>Registracija</Text>
               <TextInput
                 style={[styles.input, styles.shadow]}
                 onChangeText={handleChange("email")}
@@ -42,23 +41,11 @@ const LoginScreen: React.FC<{}> = () => {
                 style={[styles.button, styles.shadow]}
                 onPress={handleSubmit}
               >
-                <Text style={styles.buttonText}>Prisijungti</Text>
+                <Text style={styles.buttonText}>Registruotis</Text>
               </TouchableOpacity>
             </View>
           )}
         </Formik>
-        <View style={styles.socialButtons}>
-          <SocialButton
-            title="Prisijungti su Facebook"
-            icon={require("../assets/icons/fb.png")}
-            onPress={() => null}
-          />
-          <SocialButton
-            title="Prisijungti su Google"
-            icon={require("../assets/icons/google.png")}
-            onPress={() => null}
-          />
-        </View>
       </SafeAreaView>
     </View>
   );
@@ -123,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default RegisterScreen;
