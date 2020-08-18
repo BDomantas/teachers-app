@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,38 +7,66 @@ import {
 } from "react-native";
 
 import { UserContext } from "./src/context/index";
-import { Navigation } from "react-native-navigation";
+import {Navigation} from "react-native-navigation";
 import screenConstants from "./src/screens/config/constants";
 import Button from './src/components/Button';
+const { home, index, sideMenu, leftButton, stackId } = screenConstants;
 
-const { home } = screenConstants;
-
-const App = () => {
+const App = ({ componentId }) => {
   const context = useContext(UserContext);
-
+  console.log("COMPONENT ID", componentId);
   useEffect(() => {
     if (context.token) {
       Navigation.setRoot({
         root: {
-          stack: {
-            children: [
-              {
-                component: {
-                  name: home,
-                  options: {
-                    topBar: {
-                      title: {
-                        text: "Home Screen",
+          sideMenu: {
+            center: {
+            stack: {
+              id: stackId,
+              children: [
+                {
+                  component: {
+                    name: home,
+                    options: {
+     
+                      topBar: {
+                        leftButtons: [
+                          {
+                            id: leftButton,
+                            icon: require('./src/assets/icons/menu.png'),
+                          },
+                        ],
+                        title: {
+                          text: "Home Screen",
+                        },
                       },
                     },
                   },
                 },
-              },
-            ],
-          },
+              ],
+            },
+           },
+           left: {
+            component: {
+              name: sideMenu,
+            }
+           }
+          }
         },
       });
-    }
+   };
+   Navigation.events().registerNavigationButtonPressedListener(
+    ({ buttonId, componentId }) => {
+     if (buttonId === leftButton) {
+      Navigation.mergeOptions(componentId, {
+        sideMenu: {
+          left: {
+            visible: true
+          }
+        }
+      });
+     }
+  });
   }, []);
 
   return (

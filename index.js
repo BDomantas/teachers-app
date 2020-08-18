@@ -4,9 +4,9 @@ import initScreens from "./src/screens/config/initScreens";
 
 import screenConstants from "./src/screens/config/constants";
 const { index } = screenConstants;
+import App from './App';
 
 initScreens();
-
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
