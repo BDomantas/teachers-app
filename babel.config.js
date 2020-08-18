@@ -23,6 +23,7 @@ module.exports = {
           '@Store': './src/store',
           '@Navigation': './src/navigation',
           '@Styles': './src/styles',
+          '@Screens': './src/screens',
         },
       },
     ],

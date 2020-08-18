@@ -1,4 +1,7 @@
 export default {
   index: "index",
-  home: "home"
+  home: "home",
+  sideMenu: "sideMenu",
+  leftButton: 'leftButton',
+  stackId: 'homeStack'
 };
