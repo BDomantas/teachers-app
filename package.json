@@ -12,6 +12,7 @@
   "dependencies": {
     "@shoutem/ui": "^1.0.4",
     "axios": "^0.19.2",
+    "formik": "^2.1.5",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-navigation": "^4.7.0",
