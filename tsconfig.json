@@ -41,7 +41,8 @@
         "@Utils/*": [ "src/utils/*" ],
         "@Navigation/*": [ "src/navigation/*" ],
         "@Styles/*": [ "src/styles/*" ],
-        "@Screens/*": [ "src/screens/*" ]
+        "@Screens/*": [ "src/screens/*" ],
+        "@Root/*": [ "./*" ]
       }
     },
     "exclude": ["node_modules/**", "babel.config.js", "metro.config.js", "jest.config.js"]
