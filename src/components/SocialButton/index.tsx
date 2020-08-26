@@ -6,12 +6,14 @@ import {
   StyleSheet,
   ImageSourcePropType,
   Image,
+  ViewStyle,
+  GestureResponderEvent,
 } from "react-native";
 
 interface SocialButton {
   title: string;
-  onPress: any;
-  style?: any;
+  onPress: (event: GestureResponderEvent) => void;
+  style?: ViewStyle;
   icon: ImageSourcePropType;
 }
 
@@ -24,7 +26,7 @@ const SocialButton: React.FC<SocialButton> = ({
   <TouchableOpacity style={[styles.button, style && style]} onPress={onPress}>
     <Image style={styles.icon} source={icon} />
     <View style={styles.textContainer}>
-      <Text style={[styles.text]}>{title}</Text>
+      <Text style={styles.text}>{title}</Text>
     </View>
   </TouchableOpacity>
 );
